@@ -14,7 +14,7 @@
     <h3
       class="bg-white w-full rounded-lg p-2 font-semibold text-xl shadow-lg dark:bg-gray-800"
     >
-      <span class="font-bold">Title:</span> {{ post.title }}
+      <span class="font-bold">Başlık:</span> {{ post.title }}
     </h3>
     <p
       class="bg-white w-full rounded-lg p-2 text-lg shadow-lg font-medium dark:bg-gray-800"
