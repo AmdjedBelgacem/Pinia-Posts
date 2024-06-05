@@ -1,32 +1,21 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div>
+    <ThemeToggle /> 
+    <router-link :to="{ name: 'Posts'}" class="flex justify-center items-center my-10">
+      <img src="./assets/pinia-logo.svg" alt="logo" class="w-40 h-40 lg:w-60 lg:h-60">
+      <h1 class="text-5xl lg:text-[5em] rotate-[-10deg] font-bold bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">Pinia Gönderileri</h1>
+    </router-link>
+    <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+import ThemeToggle from "./components/ThemeToggle.vue";
+export default {
+  name: "App",
+  components: {
+    ThemeToggle,
+  },
+  setup() {},
+};
+</script>
