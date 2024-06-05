@@ -68,6 +68,7 @@ import CommentsDisplayView from "@/views/CommentsDisplayView.vue";
 import TrashCan from "vue-material-design-icons/TrashCan.vue";
 
 export default {
+  name: "PostDetailsView",
   props: ["id", "postSent"],
   components: {
     UpdatePostView,

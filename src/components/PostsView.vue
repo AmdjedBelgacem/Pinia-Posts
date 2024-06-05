@@ -57,6 +57,7 @@ import { computed } from "vue";
 import PostsDisplayView from "@/views/PostsDisplayView.vue";
 import { useToastStore } from "@/store/ToastStore";
 export default {
+  name: "PostsView",
   components: {
     PostsDisplayView,
   },

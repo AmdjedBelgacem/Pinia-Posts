@@ -38,6 +38,7 @@
 
 <script>
 export default {
+  name: "PostDisplayView",
   props: ["post"],
   setup(props) {
     const { post } = props;

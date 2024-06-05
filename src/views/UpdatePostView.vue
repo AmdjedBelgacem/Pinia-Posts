@@ -50,6 +50,7 @@ import { reactive } from "vue";
 import { useToastStore } from "@/store/ToastStore";
 import ToastViewVue from "@/views/ToastView.vue";
 export default {
+  name: "UpdatePostView",
   props: ["post", "updatePostState"],
   components: {
     ToastViewVue,

@@ -46,6 +46,7 @@ import { computed } from "vue";
 import CommentDisplayViewVue from "./CommentDisplayView.vue";
 
 export default {
+  name: "CommentsDisplayView",
   components: {
     ToastViewVue,
     CommentDisplayViewVue,

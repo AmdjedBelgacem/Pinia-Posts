@@ -58,6 +58,7 @@ export default {
     TrashCan,
     PencilOutline,
   },
+  name: "CommentDisplayView",
   props: ["comment"],
   setup(props) {
     const { comment } = props;

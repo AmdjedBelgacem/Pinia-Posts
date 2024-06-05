@@ -34,6 +34,7 @@ import { useToastStore } from "@/store/ToastStore";
 import TrashCan from "vue-material-design-icons/TrashCan.vue";
 import router from "@/router/routes";
 export default {
+  name: "DeletePostView",
   props: ["id"],
   components: {
     TrashCan
