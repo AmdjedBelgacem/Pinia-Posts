@@ -1,5 +1,5 @@
 <template>
-  <div @click="toggleVisibility" class="absolute left-2 top-2">
+  <div @click="toggleVisibility" class="absolute left-2 top-2 z-50">
     <button
       @click.stop="showOptions = !showOptions"
       class="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border-gray-950 dark:border-gray-200 border p-3"
