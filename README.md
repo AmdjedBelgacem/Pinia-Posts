@@ -1,4 +1,4 @@
-# Vue.js Test Projesi
+# Vue.js Pinia Gönderileri
 
 ## Giriş
 
