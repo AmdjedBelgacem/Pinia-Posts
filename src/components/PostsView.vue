@@ -73,7 +73,7 @@
           class="h-96 w-full rounded-lg shadow-lg"
         /><router-link
           :to="{ name: 'PostDetails', params: { id: post.id, postSent: post } }"
-          class="bg-lime-500 hover:bg-lime-600 rounded-lg p-1 font-semibold text-gray-200 shadow-lg w-1/4 text-center"
+          class="bg-lime-500 hover:bg-lime-600 rounded-lg p-1 font-semibold text-gray-200 shadow-lg w-full lg:w-1/4 text-center"
         >
         gönderiyi genişlet
         </router-link>
