@@ -2,7 +2,7 @@
   <div class="flex justify-center items-center p-2 md:p-0 w-full">
     <form
       @submit.prevent="handleSubmit"
-      class="flex flex-col h-96 bg-gray-100 dark:bg-gray-600 w-full sm:w-10/12 xl:w-1/2  rounded-lg shadow-lg justify-around p-4 "
+      class="flex flex-col h-96 bg-gray-100 dark:bg-gray-600 w-full sm:w-10/12 xl:w-1/2 rounded-lg shadow-lg justify-around p-4"
     >
       <h1 class="text-center text-3xl font-bold">Giriş</h1>
       <label class="font-medium text-xl" for="email">e-posta</label>
@@ -30,11 +30,6 @@
         Giriş
       </button>
     </form>
-    <ToastViewVue
-      :message="toastStore.message"
-      :type="toastStore.type"
-      :visible="toastStore.visible"
-    />
   </div>
 </template>
 
@@ -59,7 +54,7 @@ export default {
       }
       toastStore.showToast("E-posta veya Şifre Hatalı!", "error");
     };
-    return { email, password, handleSubmit, toastStore };
+    return { email, password, handleSubmit };
   },
 };
 </script>

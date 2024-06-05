@@ -18,9 +18,10 @@
         </button>
         <button
           @click="deletePost"
-          class="p-2 w-1/2 bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-in-out shadow-lg rounded-lg text-gray-200 font-semibold"
+          class="p-2 w-1/2 bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-in-out shadow-lg rounded-lg text-gray-200 font-semibold flex gap-2"
         >
           Sil
+          <TrashCan />
         </button>
       </div>
     </div>
@@ -30,19 +31,19 @@
 <script>
 import { usePostsStore } from "@/store/PostsStore";
 import { useToastStore } from "@/store/ToastStore";
-import ToastViewVue from "@/views/ToastView.vue";
+import TrashCan from "vue-material-design-icons/TrashCan.vue";
 import router from "@/router/routes";
 export default {
   props: ["id"],
   components: {
-    ToastViewVue,
+    TrashCan
   },
   setup(props) {
     const { id } = props;
     const toastStore = useToastStore();
     const postsStore = usePostsStore();
     const deletePost = () => {
-      postsStore.deletePosts(id);
+      postsStore.deletePost(id);
       toastStore.showToast("Gönderi Başarıyla Silindi!", "success");
       postsStore.deletePostState = false;
       router.push({ name: "Posts", path: "/posts" });

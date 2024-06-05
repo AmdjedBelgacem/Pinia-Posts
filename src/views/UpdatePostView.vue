@@ -65,7 +65,7 @@ export default {
     const updatePost = (id, postData) => {
       postsStore.updatePost(id, postData);
       postsStore.updatePostState = false;
-      toastStore.showToast("Gönderi Başarıyla Güncellendi!w", "success");
+      toastStore.showToast("Gönderi Başarıyla Güncellendi!", "success");
     };
     return { postsStore, postData, post, toastStore, updatePost };
   },

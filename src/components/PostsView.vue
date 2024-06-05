@@ -15,7 +15,7 @@
         type="text"
         name="title"
         id="title"
-        v-model="post.title"
+        v-model="postsStore.post.title"
         placeholder="başlık..."
         class="p-2 rounded-lg w-full shadow-lg font-medium dark:bg-gray-600"
         required
@@ -25,7 +25,7 @@
         id="post"
         cols="30"
         rows="10"
-        v-model="post.body"
+        v-model="postsStore.post.body"
         placeholder="bir şeyler gönder..."
         class="p-2 rounded-lg w-full shadow-lg font-medium dark:bg-gray-600"
         required
@@ -44,86 +44,39 @@
         :key="post.id"
         class="flex flex-col gap-2 bg-gray-100 p-4 rounded-lg w-full shadow-lg dark:bg-gray-600"
       >
-        <div class="flex gap-4">
-          <img
-            src="https://img.freepik.com/premium-photo/cat-diary-captivating-photos-kitten-lover_563241-2995.jpg"
-            alt="cat image"
-            class="w-16 h-16 rounded-full shadow-lg"
-          />
-          <div class="flex flex-col gap-1 p-1">
-            <p><strong>Yazar:</strong> John Doe</p>
-            <p>Az Önce</p>
-          </div>
-        </div>
-        <h3
-          class="bg-white w-full rounded-lg p-2 font-semibold text-xl shadow-lg dark:bg-gray-800"
-        >
-          <span class="font-bold">Title:</span> {{ post.title }}
-        </h3>
-        <p
-          class="bg-white w-full rounded-lg p-2 text-lg shadow-lg font-medium dark:bg-gray-800"
-        >
-          {{ post.body }}
-        </p>
-        <img
-          :src="'https://source.unsplash.com/random/?Cryptocurrency&' + post.id"
-          alt="random image"
-          width="1000"
-          height="1000"
-          class="h-96 w-full rounded-lg shadow-lg"
-        /><router-link
-          :to="{ name: 'PostDetails', params: { id: post.id, postSent: post } }"
-          class="bg-lime-500 hover:bg-lime-600 rounded-lg p-1 font-semibold text-gray-200 shadow-lg w-full lg:w-1/4 text-center"
-        >
-        gönderiyi genişlet
-        </router-link>
+        <PostsDisplayView :post="post" />
       </li>
     </ul>
-    <ToastViewVue
-      :message="toastStore.message"
-      :type="toastStore.type"
-      :visible="toastStore.visible"
-    />
   </div>
 </template>
 
 <script>
 import { usePostsStore } from "../store/PostsStore";
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 import { computed } from "vue";
+import PostsDisplayView from "@/views/PostsDisplayView.vue";
 import { useToastStore } from "@/store/ToastStore";
-import ToastViewVue from "@/views/ToastView.vue";
 export default {
   components: {
-    ToastViewVue,
+    PostsDisplayView,
   },
   setup() {
-    const postsStore = usePostsStore();
     const toastStore = useToastStore();
-    const post = reactive({ title: "", body: "" });
+    const postsStore = usePostsStore();
     const search = ref("");
     const posts = computed(() => postsStore.posts);
     const isLoading = computed(() => postsStore.loading);
     postsStore.fetchPosts();
     const handleAddPost = () => {
-      postsStore.addPosts({
-        ...post,
-        id: Math.floor(Math.random() * 5000),
-        userId: 2604,
-      });
+      postsStore.addPost();
       toastStore.showToast("Gönderi Başarıyla Eklendi!", "Success");
-      post.title = "";
-      post.body = "";
     };
-
     return {
       posts,
       isLoading,
-      post,
       postsStore,
       handleAddPost,
       search,
-      toastStore,
     };
   },
 };
