@@ -4,12 +4,12 @@
       type="text"
       v-model="postsStore.search"
       placeholder="Gönderileri ara..."
-      class="p-2 rounded-lg w-full sm:w-10/12 xl:w-1/2 shadow-lg font-medium dark:bg-gray-600"
+      class="p-2 rounded-lg w-full sm:w-10/12 xl:w-1/2 shadow-lg font-medium dark:bg-gray-600 animate-appear"
     />
-    <h1 class="text-2xl font-semibold">Aklına Bir Şey Mi Geldi? Gönder!</h1>
+    <h1 class="text-2xl font-semibold animate-appear">Aklına Bir Şey Mi Geldi? Gönder!</h1>
     <form
       @submit.prevent="handleAddPost"
-      class="flex flex-col gap-2 w-full sm:w-10/12 xl:w-1/2"
+      class="flex flex-col gap-2 w-full sm:w-10/12 xl:w-1/2 animate-appear"
     >
       <input
         type="text"
@@ -42,7 +42,7 @@
       <li
         v-for="post in postsStore.filteredPosts"
         :key="post.id"
-        class="flex flex-col gap-2 bg-gray-100 p-4 rounded-lg w-full shadow-lg dark:bg-gray-600"
+        class="flex flex-col gap-2 bg-gray-100 p-4 rounded-lg w-full shadow-lg dark:bg-gray-600 animate-appear"
       >
         <PostsDisplayView :post="post" />
       </li>

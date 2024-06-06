@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="postsStore.updatePostState"
-    class="w-screen h-screen fixed left-0 top-0 backdrop-blur-lg"
+    class="w-screen h-screen fixed left-0 top-0 backdrop-blur-lg animate-appear"
   >
     <form
       @submit.prevent="updatePost(post.id, postData)"

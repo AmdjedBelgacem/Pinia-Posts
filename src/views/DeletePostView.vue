@@ -4,7 +4,7 @@
     class="w-screen h-screen fixed left-0 top-0 backdrop-blur-lg flex justify-center items-center"
   >
     <div
-      class="bg-white p-4 w-full sm:w-10/12 xl:w-1/2 rounded-lg flex flex-col justify-around gap-2 shadow-lg"
+      class="bg-white p-4 w-full sm:w-10/12 xl:w-1/2 rounded-lg flex flex-col justify-around gap-2 shadow-lg animate-appear"
     >
       <h1 class="text-3xl font-bold">
         Bu gönderiyi silmek istediğinize emin misiniz?

@@ -3,7 +3,7 @@
     <h1 v-if="postsStore.loading">Loading...</h1>
     <div
       v-else
-      class="bg-gray-100 p-4 rounded-lg w-full sm:w-10/12 xl:w-1/2 shadow-lg dark:bg-gray-600 flex flex-col gap-4"
+      class="bg-gray-100 p-4 rounded-lg w-full sm:w-10/12 xl:w-1/2 shadow-lg dark:bg-gray-600 flex flex-col gap-4 animate-appear"
     >
       <div class="flex gap-4">
         <img

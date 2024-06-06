@@ -1,14 +1,26 @@
 <template>
-  <div class="flex flex-col gap-2">
-    <div class="flex gap-4 items-center">
-      <div class="flex flex-col gap-1 w-full">
-        <p class="flex items-center gap-5 font-bold">@{{ comment.name }}</p>
-        <p
-          class="bg-white w-full rounded-lg p-2 text-lg shadow-lg font-medium dark:bg-gray-800"
-        >
-          {{ comment.body }}
+  <div class="flex flex-col gap-2 animate-appear">
+    <div class="flex flex-col w-full gap-4 items-start">
+      <div class="flex gap-2 items-start">
+        <img
+          :src="
+            'https://source.unsplash.com/random/?Cryptocurrency&' + randomNum
+          "
+          alt="cat image"
+          class="w-10 h-10 rounded-full shadow-lg"
+        />
+        <p class="flex flex-col items-start font-bold">
+          <span>@{{ comment.name }}</span
+          ><span class="text-xs text-gray-400 font-base"
+            >Birkaç an önce paylaşıldı</span
+          >
         </p>
       </div>
+      <p
+        class="bg-white w-full rounded-lg p-2 text-lg shadow-lg font-medium dark:bg-gray-800"
+      >
+        {{ comment.body }}
+      </p>
     </div>
 
     <div v-if="updateState" class="flex gap-2">
@@ -19,7 +31,7 @@
         class="p-2 rounded-lg w-full shadow-lg font-medium dark:bg-gray-600"
       />
       <button
-        @click="updateComment(comment.id), updateState = false"
+        @click="updateComment(comment.id), (updateState = false)"
         class="shadow-lg px-4 py-2 bg-yellow-400 hover:bg-yellow-500 rounded-lg font-semibold flex gap-2"
       >
         Güncelle
@@ -31,7 +43,6 @@
         @click="updateState = true"
         class="shadow-lg px-4 py-2 bg-yellow-400 hover:bg-yellow-500 rounded-lg font-semibold flex gap-2"
       >
-      
         Güncelle
 
         <PencilOutline />
@@ -59,9 +70,9 @@ export default {
     PencilOutline,
   },
   name: "CommentDisplayView",
-  props: ["comment"],
+  props: ["comment", "randomNum"],
   setup(props) {
-    const { comment } = props;
+    const { comment, randomNum } = props;
     const commentsStore = useCommentsStore();
     const updateState = ref(false);
     const editedComment = ref("");
@@ -85,6 +96,7 @@ export default {
       updateComment,
       updateState,
       editedComment,
+      randomNum,
     };
   },
 };

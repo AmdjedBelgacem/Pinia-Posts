@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex flex-col items-center gap-2">
+  <div class="w-full flex flex-col items-center gap-2 animate-appear">
     <form @submit.prevent="handleCommentAdd" class="w-full sm:w-10/12 xl:w-1/2">
       <textarea
         name="comment"
@@ -24,14 +24,14 @@
         :key="comment.id"
         class="bg-gray-100 p-4 rounded-lg w-full shadow-lg dark:bg-gray-600 flex flex-col gap-4"
       >
-        <CommentDisplayViewVue :comment="comment" />
+        <CommentDisplayViewVue :comment="comment" :randomNum="Math.floor(Math.random()*1000)"/>
       </li>
       <li
         v-for="comment in comments"
         :key="comment.id"
         class="bg-gray-100 p-4 rounded-lg w-full shadow-lg dark:bg-gray-600 flex flex-col gap-4"
       >
-        <CommentDisplayViewVue :comment="comment" />
+        <CommentDisplayViewVue :comment="comment" :randomNum="Math.floor(Math.random()*1000)"/>
       </li>
     </ul>
   </div>
