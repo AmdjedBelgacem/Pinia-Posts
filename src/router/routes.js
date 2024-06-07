@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import LoginView from "../components/LoginView.vue";
 import PostsView from "../components/PostsView.vue";
 import PostDetailsView from "../components/PostDetailsView.vue";
+import NotFoundView from "../components/NotFoundView.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,11 @@ const routes = [
     component: PostDetailsView,
     props: true,
   },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: NotFoundView,
+  }
 ];
 
 const router = new VueRouter({
